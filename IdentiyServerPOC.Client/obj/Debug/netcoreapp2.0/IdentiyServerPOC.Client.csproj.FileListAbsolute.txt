@@ -1,0 +1,11 @@
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\bin\Debug\netcoreapp2.0\IdentiyServerPOC.Client.deps.json
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\bin\Debug\netcoreapp2.0\IdentiyServerPOC.Client.runtimeconfig.json
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\bin\Debug\netcoreapp2.0\IdentiyServerPOC.Client.runtimeconfig.dev.json
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\bin\Debug\netcoreapp2.0\IdentiyServerPOC.Client.dll
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\obj\Debug\netcoreapp2.0\IdentiyServerPOC.Client.csprojResolveAssemblyReference.cache
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\obj\Debug\netcoreapp2.0\IdentiyServerPOC.Client.csproj.CoreCompileInputs.cache
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\obj\Debug\netcoreapp2.0\IdentiyServerPOC.Client.AssemblyInfoInputs.cache
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\obj\Debug\netcoreapp2.0\IdentiyServerPOC.Client.AssemblyInfo.cs
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\bin\Debug\netcoreapp2.0\IdentiyServerPOC.Client.pdb
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\obj\Debug\netcoreapp2.0\IdentiyServerPOC.Client.dll
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentiyServerPOC.Client\obj\Debug\netcoreapp2.0\IdentiyServerPOC.Client.pdb

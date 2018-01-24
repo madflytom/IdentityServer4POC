@@ -1,0 +1,11 @@
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\bin\Debug\netcoreapp2.0\IdentityServerPOC.Auth.deps.json
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\bin\Debug\netcoreapp2.0\IdentityServerPOC.Auth.runtimeconfig.json
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\bin\Debug\netcoreapp2.0\IdentityServerPOC.Auth.runtimeconfig.dev.json
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\bin\Debug\netcoreapp2.0\IdentityServerPOC.Auth.dll
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\obj\Debug\netcoreapp2.0\IdentityServerPOC.Auth.csprojResolveAssemblyReference.cache
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\obj\Debug\netcoreapp2.0\IdentityServerPOC.Auth.csproj.CoreCompileInputs.cache
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\obj\Debug\netcoreapp2.0\IdentityServerPOC.Auth.AssemblyInfoInputs.cache
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\obj\Debug\netcoreapp2.0\IdentityServerPOC.Auth.AssemblyInfo.cs
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\bin\Debug\netcoreapp2.0\IdentityServerPOC.Auth.pdb
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\obj\Debug\netcoreapp2.0\IdentityServerPOC.Auth.dll
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Auth\obj\Debug\netcoreapp2.0\IdentityServerPOC.Auth.pdb
