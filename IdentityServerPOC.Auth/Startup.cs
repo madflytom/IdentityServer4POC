@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using IdentityServerPOC.Auth.Clients;
 using IdentityServerPOC.Auth.Resources;
 using IdentityServerPOC.Auth.Users;
+using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 
 namespace IdentityServerPOC.Auth
 {
@@ -20,12 +22,22 @@ namespace IdentityServerPOC.Auth
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            const string connectionString =
+            @"Data Source=(LocalDb)\MSSQLLocalDB;database=Test.IdentityServer4.EntityFramework;trusted_connection=yes;";
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+
+
+
             services.AddIdentityServer()
-            .AddInMemoryClients(Clients.Clients.Get())
-            .AddInMemoryIdentityResources(Resources.Resources.GetIdentityResources())
-            .AddInMemoryApiResources(Resources.Resources.GetApiResources())
+            .AddConfigurationStore(options =>
+                options.ConfigureDbContext = builder =>
+                builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)))
             .AddTestUsers(Users.Users.Get())
-            .AddDeveloperSigningCredential();
+            .AddDeveloperSigningCredential()
+            .AddOperationalStore(options =>
+                options.ConfigureDbContext = builder =>
+                builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)));
+
 
             services.AddMvc();
 

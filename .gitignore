@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs/IdentityServerPOC/v15/Server/sqlite3/db.lock
+/.vs/IdentityServerPOC/v15/Server/sqlite3/storage.ide
+/.vs/IdentityServerPOC/v15/Server/sqlite3/storage.ide-shm
+/.vs/IdentityServerPOC/v15/Server/sqlite3/storage.ide-wal
+/.vs/IdentityServerPOC/v15/.suo
+/.vs/config/applicationhost.config

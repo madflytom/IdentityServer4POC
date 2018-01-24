@@ -12564,6 +12564,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://usadc-vsidppw44/PackageManagement/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
