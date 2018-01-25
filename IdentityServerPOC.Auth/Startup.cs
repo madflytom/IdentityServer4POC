@@ -13,6 +13,8 @@ using IdentityServerPOC.Auth.Resources;
 using IdentityServerPOC.Auth.Users;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+using IdentityServerPOC.Auth.Model;
+using Microsoft.AspNetCore.Identity;
 
 namespace IdentityServerPOC.Auth
 {
@@ -26,17 +28,22 @@ namespace IdentityServerPOC.Auth
             @"Data Source=(LocalDb)\MSSQLLocalDB;database=Test.IdentityServer4.EntityFramework;trusted_connection=yes;";
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
+            services.AddDbContext<ApplicationDbContext>(builder =>
+                 builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)));
 
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddIdentityServer()
             .AddConfigurationStore(options =>
                 options.ConfigureDbContext = builder =>
                 builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)))
-            .AddTestUsers(Users.Users.Get())
+            .AddAspNetIdentity<IdentityUser>()
             .AddDeveloperSigningCredential()
             .AddOperationalStore(options =>
                 options.ConfigureDbContext = builder =>
                 builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)));
+
 
 
             services.AddMvc();

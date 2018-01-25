@@ -57,6 +57,19 @@
           "lib/netstandard2.0/IdentityServer4.dll": {}
         }
       },
+      "IdentityServer4.AspNetIdentity/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "IdentityServer4": "2.1.1",
+          "Microsoft.AspNetCore.Identity": "2.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/IdentityServer4.AspNetIdentity.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/IdentityServer4.AspNetIdentity.dll": {}
+        }
+      },
       "IdentityServer4.EntityFramework/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -4833,6 +4846,18 @@
         "lib/netstandard2.0/IdentityServer4.dll",
         "lib/netstandard2.0/IdentityServer4.pdb",
         "lib/netstandard2.0/IdentityServer4.xml"
+      ]
+    },
+    "IdentityServer4.AspNetIdentity/2.1.0": {
+      "sha512": "r1QXwLW11a4+BxTy/2GUFzAYLAulKQhMSDs/fFCai6r1oH0btv6Dw7lvDNyh8wn0oeonMQvxxzJKzLbMqYZcNw==",
+      "type": "package",
+      "path": "identityserver4.aspnetidentity/2.1.0",
+      "files": [
+        "identityserver4.aspnetidentity.2.1.0.nupkg.sha512",
+        "identityserver4.aspnetidentity.nuspec",
+        "lib/netstandard2.0/IdentityServer4.AspNetIdentity.dll",
+        "lib/netstandard2.0/IdentityServer4.AspNetIdentity.pdb",
+        "lib/netstandard2.0/IdentityServer4.AspNetIdentity.xml"
       ]
     },
     "IdentityServer4.EntityFramework/2.1.1": {
@@ -12648,7 +12673,9 @@
     ".NETCoreApp,Version=v2.0": [
       "IdentityServer4 >= 2.1.1",
       "IdentityServer4.EntityFramework >= 2.1.1",
+      "IdentityServer4.aspnetidentity >= 2.1.0",
       "Microsoft.AspNetCore.All >= 2.0.5",
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 2.0.1",
       "Microsoft.AspNetCore.Mvc >= 2.0.2",
       "Microsoft.AspNetCore.StaticFiles >= 2.0.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.0.1",
@@ -12708,9 +12735,17 @@
             "target": "Package",
             "version": "[2.1.1, )"
           },
+          "IdentityServer4.aspnetidentity": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "[2.0.5, )"
+          },
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[2.0.1, )"
           },
           "Microsoft.AspNetCore.Mvc": {
             "target": "Package",
