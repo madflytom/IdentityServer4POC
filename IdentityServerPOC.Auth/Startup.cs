@@ -8,13 +8,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using IdentityServerPOC.Auth.Clients;
-using IdentityServerPOC.Auth.Resources;
-using IdentityServerPOC.Auth.Users;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using IdentityServerPOC.Auth.Model;
 using Microsoft.AspNetCore.Identity;
+using IdentityServer4.EntityFramework.DbContexts;
+using IdentityServer4.EntityFramework.Mappers;
 
 namespace IdentityServerPOC.Auth
 {
@@ -44,7 +43,7 @@ namespace IdentityServerPOC.Auth
                 options.ConfigureDbContext = builder =>
                 builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)));
 
-
+            
 
             services.AddMvc();
 
@@ -58,6 +57,8 @@ namespace IdentityServerPOC.Auth
                 app.UseDeveloperExceptionPage();
             }
 
+            InitializeDbTestData(app);
+
             app.UseIdentityServer();
 
             app.UseStaticFiles();
@@ -67,6 +68,60 @@ namespace IdentityServerPOC.Auth
             {
                 await context.Response.WriteAsync("Hello World!");
             });
+        }
+
+        private static void InitializeDbTestData(IApplicationBuilder app)
+        {
+            using (var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>().Database.Migrate();
+                scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>().Database.Migrate();
+                scope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.Migrate();
+
+                var context = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
+
+                if (!context.Clients.Any())
+                {
+                    foreach (var client in Clients.Get())
+                    {
+                        context.Clients.Add(client.ToEntity());
+                    }
+                    context.SaveChanges();
+                }
+
+                if (!context.IdentityResources.Any())
+                {
+                    foreach (var resource in Resources.GetIdentityResources())
+                    {
+                        context.IdentityResources.Add(resource.ToEntity());
+                    }
+                    context.SaveChanges();
+                }
+
+                if (!context.ApiResources.Any())
+                {
+                    foreach (var resource in Resources.GetApiResources())
+                    {
+                        context.ApiResources.Add(resource.ToEntity());
+                    }
+                    context.SaveChanges();
+                }
+
+                var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                if (!userManager.Users.Any())
+                {
+                    foreach (var testUser in Users.Get())
+                    {
+                        var identityUser = new IdentityUser(testUser.Username)
+                        {
+                            Id = testUser.SubjectId
+                        };
+
+                        userManager.CreateAsync(identityUser, "Password123!").Wait();
+                        userManager.AddClaimsAsync(identityUser, testUser.Claims.ToList()).Wait();
+                    }
+                }
+            }
         }
     }
 }
