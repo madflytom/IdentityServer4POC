@@ -14,6 +14,7 @@ using IdentityServerPOC.Auth.Model;
 using Microsoft.AspNetCore.Identity;
 using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
+using IdentityServer4.Models;
 
 namespace IdentityServerPOC.Auth
 {
@@ -43,7 +44,12 @@ namespace IdentityServerPOC.Auth
                 options.ConfigureDbContext = builder =>
                 builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)));
 
-            
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader()
+                    .AllowAnyMethod());
+            });
 
             services.AddMvc();
 
@@ -57,7 +63,9 @@ namespace IdentityServerPOC.Auth
                 app.UseDeveloperExceptionPage();
             }
 
-            InitializeDbTestData(app);
+            
+
+            app.UseCors("AllowSpecificOrigin");
 
             app.UseIdentityServer();
 
@@ -68,6 +76,8 @@ namespace IdentityServerPOC.Auth
             {
                 await context.Response.WriteAsync("Hello World!");
             });
+
+            InitializeDbTestData(app);
         }
 
         private static void InitializeDbTestData(IApplicationBuilder app)
@@ -80,14 +90,15 @@ namespace IdentityServerPOC.Auth
 
                 var context = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
 
-                if (!context.Clients.Any())
-                {
+                //if (!context.Clients.Any())
+                //{
                     foreach (var client in Clients.Get())
                     {
+                        if (client.ClientId == "angular_spa")
                         context.Clients.Add(client.ToEntity());
                     }
                     context.SaveChanges();
-                }
+                //}
 
                 if (!context.IdentityResources.Any())
                 {

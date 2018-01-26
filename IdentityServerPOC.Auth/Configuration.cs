@@ -34,7 +34,24 @@ namespace IdentityServerPOC.Auth
                     },
                     RedirectUris = new List<string> {"https://localhost:44348/signin-oidc"},
                     PostLogoutRedirectUris = new List<string> { "https://localhost:44348/" }
-                }
+                },
+                new Client {
+                    ClientId = "angular_spa",
+                    ClientName = "Angular 4 Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "role",
+                        "customAPI.write"
+                    },
+                    RedirectUris = new List<string> { "http://localhost:4200/auth-callback" },
+                    PostLogoutRedirectUris = new List<string> { "http://localhost:4200/" },
+                    AllowedCorsOrigins = new List<string> { "http://localhost:4200" },
+                    AllowAccessTokensViaBrowser = true
+}
             };
         }
     }

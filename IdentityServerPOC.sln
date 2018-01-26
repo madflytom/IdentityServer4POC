@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerPOC.Auth", "IdentityServerPOC.Auth\IdentityServerPOC.Auth.csproj", "{FAD7B2E3-E746-4875-8580-2C57631DC25E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentiyServerPOC.Client", "IdentiyServerPOC.Client\IdentiyServerPOC.Client.csproj", "{380F27B1-DA30-4A49-A237-30FCCCF40011}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentiyServerPOC.Client", "IdentiyServerPOC.Client\IdentiyServerPOC.Client.csproj", "{380F27B1-DA30-4A49-A237-30FCCCF40011}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
