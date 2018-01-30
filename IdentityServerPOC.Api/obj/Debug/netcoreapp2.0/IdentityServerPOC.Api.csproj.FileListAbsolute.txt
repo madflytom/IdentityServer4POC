@@ -1,0 +1,11 @@
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\bin\Debug\netcoreapp2.0\IdentityServerPOC.Api.deps.json
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\bin\Debug\netcoreapp2.0\IdentityServerPOC.Api.runtimeconfig.json
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\bin\Debug\netcoreapp2.0\IdentityServerPOC.Api.runtimeconfig.dev.json
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\bin\Debug\netcoreapp2.0\IdentityServerPOC.Api.dll
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\bin\Debug\netcoreapp2.0\IdentityServerPOC.Api.pdb
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\obj\Debug\netcoreapp2.0\IdentityServerPOC.Api.csprojResolveAssemblyReference.cache
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\obj\Debug\netcoreapp2.0\IdentityServerPOC.Api.csproj.CoreCompileInputs.cache
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\obj\Debug\netcoreapp2.0\IdentityServerPOC.Api.AssemblyInfoInputs.cache
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\obj\Debug\netcoreapp2.0\IdentityServerPOC.Api.AssemblyInfo.cs
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\obj\Debug\netcoreapp2.0\IdentityServerPOC.Api.dll
+C:\Users\q847443\source\repos\IdentityServerPOC\IdentityServerPOC.Api\obj\Debug\netcoreapp2.0\IdentityServerPOC.Api.pdb

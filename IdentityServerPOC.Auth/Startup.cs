@@ -46,9 +46,11 @@ namespace IdentityServerPOC.Auth
 
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowSpecificOrigin",
-                    builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader()
-                    .AllowAnyMethod());
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
             });
 
             services.AddMvc();
@@ -65,7 +67,7 @@ namespace IdentityServerPOC.Auth
 
             
 
-            app.UseCors("AllowSpecificOrigin");
+            app.UseCors("CorsPolicy");
 
             app.UseIdentityServer();
 
@@ -90,15 +92,15 @@ namespace IdentityServerPOC.Auth
 
                 var context = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
 
-                //if (!context.Clients.Any())
-                //{
+                if (!context.Clients.Any())
+                {
                     foreach (var client in Clients.Get())
                     {
                         if (client.ClientId == "angular_spa")
                         context.Clients.Add(client.ToEntity());
                     }
                     context.SaveChanges();
-                //}
+                }
 
                 if (!context.IdentityResources.Any())
                 {

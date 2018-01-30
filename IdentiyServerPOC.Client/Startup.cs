@@ -35,6 +35,15 @@ namespace IdentiyServerPOC.Client
                 options.SignInScheme = "cookie";
             });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
+
             services.AddMvc();
         }
 
@@ -50,6 +59,8 @@ namespace IdentiyServerPOC.Client
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseStaticFiles();
 
