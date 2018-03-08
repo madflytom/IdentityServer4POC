@@ -44,6 +44,12 @@ namespace IdentityServerPOC.Auth
                 options.ConfigureDbContext = builder =>
                 builder.UseSqlServer(connectionString, sqlOptions => sqlOptions.MigrationsAssembly(migrationsAssembly)));
 
+            services.Configure<IISOptions>(iis =>
+            {
+                iis.AuthenticationDisplayName = "Windows";
+                iis.AutomaticAuthentication = false;
+            });
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",

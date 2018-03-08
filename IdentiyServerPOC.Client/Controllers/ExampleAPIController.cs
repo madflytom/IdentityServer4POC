@@ -15,7 +15,7 @@ namespace IdentiyServerPOC.Client.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("This is an authenticated resource");
+           return Ok("This is an authenticated resource");
         }
     }
 }

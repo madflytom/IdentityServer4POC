@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 
 import { AuthService } from '../services/auth.service'
+import { User } from 'oidc-client';
 
 @Component({
   selector: 'app-call-api',
@@ -10,6 +11,7 @@ import { AuthService } from '../services/auth.service'
 })
 export class CallApiComponent implements OnInit {
   response: string;
+  userVar: any;
   constructor(private http: Http, private authService: AuthService) {
     console.log("Local Storage set to " + localStorage.getItem('routeBack'));
    }
@@ -23,6 +25,7 @@ export class CallApiComponent implements OnInit {
 
     this.http.get("https://localhost:44348/api/exampleAPI", options)
       .subscribe(response => this.response = response.text());
+
   }
 
 }

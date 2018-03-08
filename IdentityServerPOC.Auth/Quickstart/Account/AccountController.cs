@@ -169,13 +169,13 @@ namespace IdentityServer4.Quickstart.UI
                     id.AddClaim(new Claim(JwtClaimTypes.Name, wp.Identity.Name));
 
                     // add the groups as claims -- be careful if the number of groups is too large
-                    if (AccountOptions.IncludeWindowsGroups)
-                    {
+                    //if (AccountOptions.IncludeWindowsGroups)
+                    //{
                         var wi = wp.Identity as WindowsIdentity;
                         var groups = wi.Groups.Translate(typeof(NTAccount));
                         var roles = groups.Select(x => new Claim(JwtClaimTypes.Role, x.Value));
                         id.AddClaims(roles);
-                    }
+                    //}
 
                     await HttpContext.SignInAsync(
                         IdentityConstants.ExternalScheme,
@@ -242,7 +242,7 @@ namespace IdentityServer4.Quickstart.UI
             {
                 // this sample simply auto-provisions new external user
                 // another common approach is to start a registrations workflow first
-                user = new IdentityUser { UserName = Guid.NewGuid().ToString() };
+                user = new IdentityUser { UserName = userId };
                 await _userManager.CreateAsync(user);
                 await _userManager.AddLoginAsync(user, new UserLoginInfo(provider, userId, provider));
             }
